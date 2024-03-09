@@ -1,0 +1,250 @@
+/*==============
+      CORES
+==============*/
+
+$cor-primaria: #634B1C;
+$cor-primaria-darker1: #543B13;
+$cor-secundaria: #F4E9D0;
+
+$cor-enfase: #BC820D;
+$cor-enfase-lighter1: #E5B52E;
+$cor-enfase-darker1: #803C00;
+
+$cor-contraste-escuro: #231902;
+$cor-contraste-escuro-lighter1: #382703;
+$cor-contraste-claro: #FFFBF1;
+
+$vinhosSaturation: 62%;
+$vinhosLuminosity: 89%;
+
+$cor-vinhos1: hsl(332, $vinhosSaturation, $vinhosLuminosity);
+$cor-vinhos2: hsl(0, $vinhosSaturation, $vinhosLuminosity);
+
+//$cor-selection: fade-out($cor-secundaria, .6);
+$cor-selection: #776C54;
+
+/*==============
+   TIPOGRAFIA
+==============*/
+
+$font-sans-serif: 'Cairo', Arial, Helvetica, sans-serif;
+$font-serif: 'Playfair Display', 'Times New Roman', Times, serif;
+$font-script: 'Tangerine', 'Times New Roman', Times, serif;
+
+@mixin font($type) {
+   @if $type == info-small {
+      font-family: $font-sans-serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: .5px;
+   }
+   @else if $type == info-small-title or $type == button {
+      font-family: $font-sans-serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+   }
+   @else if $type == nav {
+      font-family: $font-serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+   }
+   @else if $type == menu-name {
+      font-family: $font-sans-serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+   }
+   @else if $type == footer {
+      font-family: $font-sans-serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: 1.2px;
+   }
+   @else if $type == menu-description {
+      font-family: $font-sans-serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 1.2;
+      letter-spacing: 1.2px;
+   }
+   @else if $type == text {
+      font-family: $font-sans-serif;
+      font-size: 2rem;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: 1.2px;
+   }
+   @else if $type == quote {
+      font-family: $font-serif;
+      font-size: 2.8rem;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: 0px;
+   }
+   @else if $type == section-title {
+      font-family: $font-serif;
+      font-size: 3.6rem;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: 0px;
+   }
+   @else if $type == title {
+      font-family: $font-serif;
+      font-size: 4.8rem;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: 2px;
+   }
+   @else if $type == menu-title {
+      font-family: $font-script;
+      font-size: 9.6rem;
+      font-weight: 700;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: 1.4px;
+   }
+   @else if $type == title-large {
+      font-family: $font-serif;
+      font-size: 9.6rem;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+   }
+}
+
+/*==============
+      ICONS
+==============*/
+
+$icon-cor-enfase: invert(53%) sepia(60%) saturate(3828%) hue-rotate(21deg) brightness(98%) contrast(90%);
+$icon-cor-constraste-claro: hue-rotate(43deg) saturate(10%) brightness(200%);
+
+/*==============
+      SOMBRAS
+==============*/
+
+@mixin shadow($type) {
+   @if $type == header or $type == main-img {
+      box-shadow: 0px 4px 4px 0px rgba(0,0,0, .2);
+   }
+   @else if $type == body {
+      box-shadow: 4px 0px 4px 0px rgba(0,0,0, .3),
+                  -4px 0px 4px 0px rgba(0,0,0, .3);
+   }
+   @else if $type == body-light {
+      box-shadow: 6px 0px 6px 0px rgba(0,0,0, .1),
+                  -6px 0px 6px 0px rgba(0,0,0, .1),
+                  inset 0px -20px 10px -10px rgba(0,0,0, .2),
+                  inset 0px 20px 10px -10px rgba(0,0,0, .2);
+   }
+   @else if $type == img {
+      box-shadow: 4px 4px 4px 0px rgba(0,0,0, .2);
+   }
+   @else if $type == text {
+      text-shadow: 2px 2px 1px rgba(0,0,0, .25);
+   }
+   @else if $type == section-title or $type == title-large or $type == button {
+      text-shadow: 2px 2px 2px rgba(0,0,0, 1);
+   }
+   @else if $type == menu-title {
+      text-shadow: 4px 4px 4px rgba(0,0,0, .2);
+   }
+   @else if $type == section {
+      box-shadow: 0px 0px 10px 10px rgba(0,0,0, .2);
+   }
+   @else if $type == inner-section {
+      box-shadow: inset 0px 20px 10px -10px rgba(0,0,0, .2),
+                  4px 0px 4px 0px rgba(0,0,0, .3),
+                  -4px 0px 4px 0px rgba(0,0,0, .3);
+   }
+   @else if $type == footer {
+      box-shadow: 0px -4px 4px 0px rgba(0,0,0, .2);
+   }
+}
+
+
+
+/*==============
+      LAYOUT
+==============*/
+
+@mixin button($type, $bg) {
+   display: flex;
+   align-items: center;
+   max-width: fit-content;
+   max-height: fit-content;
+   background-color: transparent;
+   padding: 13px 15px;
+   transition: .3s;
+   @include font(button);
+   @include shadow(button);
+   &:hover {
+      transform: scale(1.01);
+   }
+   img {
+      max-width: 24px;
+      max-height: 24px;
+      margin-right: 5px;
+   }
+   @if $type == dark {
+      color: $cor-enfase;
+      border: 1px solid $cor-enfase;
+      img {
+         filter: $icon-cor-enfase;
+      }
+      @if $bg == brown {
+         &:hover {
+            box-shadow: 0px 0px 0px 2px $cor-contraste-escuro-lighter1,
+                        0px 0px 0px 3px $cor-enfase;
+         }
+      }
+      @else if $bg == black {
+         &:hover {
+            box-shadow: 0px 0px 0px 2px $cor-contraste-escuro,
+                        0px 0px 0px 3px $cor-enfase;
+         }
+      }
+   }
+   @else if $type == light {
+      color: $cor-contraste-claro;
+      border: 1px solid $cor-contraste-claro;
+      img {
+         filter: $icon-cor-constraste-claro;
+      }
+      @if $bg == brown {
+         text-shadow: none;
+         &:hover {
+            box-shadow: 0px 0px 0px 2px $cor-primaria,
+                        0px 0px 0px 3px $cor-contraste-claro;
+         }
+      }
+      @else if $bg == black {
+         &:hover {
+            box-shadow: 0px 0px 0px 2px $cor-contraste-escuro,
+                        0px 0px 0px 3px $cor-contraste-claro;
+         }
+      }
+   }
+}

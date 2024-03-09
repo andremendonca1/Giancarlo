@@ -1,0 +1,265 @@
+@import 'vinhos.scss';
+
+/* MAIN FORM */
+
+.contact {
+   background-color: $cor-contraste-escuro-lighter1;
+   padding: 0px 15px 30px 15px;
+   .select-btns {
+      grid-column: 1 / span 5;
+      grid-row: 1;
+      place-self: end stretch;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(50px, 1fr));
+      column-gap: 20px;
+      max-width: 455px;
+      color: $cor-enfase;
+      margin-bottom: 60px;
+      @include font(menu-name);
+      .contact-btn, .reserva-btn {
+         display: flex;
+         span:first-of-type {
+            display: inline-block;
+            width: 21px;
+            height: 21px;
+            background-color: $cor-enfase;
+            margin-right: 10px;
+            border: 2px solid $cor-contraste-escuro-lighter1;
+            box-shadow: 0px 0px 0px 1px $cor-enfase;
+            cursor: pointer;
+         }
+         input[type="radio"] {
+            display: none;
+         }
+      }
+      .contact-btn {
+         grid-column: 1 / span 2;
+      }
+      .reserva-btn {
+         grid-column: 3 / span 2;
+      }
+   }
+   .contact-title, .reserva-title {
+      grid-column: 7 / -1;
+      grid-row: 1;
+      place-self: start end;
+      color: $cor-contraste-claro;
+      margin-bottom: 60px;
+      @include font(title-large);
+      @include shadow(title-large);
+   }
+   .form {
+      grid-column: 1 / span 5;
+      grid-row: 2 / span 3;
+      div[class^="contact-form-"], div[class^="reserva-form"] {
+         margin-bottom: 20px;
+      }
+      label {
+         display: block;
+         color: $cor-secundaria;
+         @include font(text);
+      }
+      input, textarea, select {
+         width: 100%;
+         background-color: transparent;
+         color: $cor-contraste-claro;
+         padding: 5px 10px;
+         border: 1px solid $cor-enfase;
+         cursor: text;
+         resize: vertical;
+         @include font(footer);
+      }
+      input[type="date"], input[type="time"] {
+         resize: none;
+         &::-webkit-calendar-picker-indicator {
+            filter: $icon-cor-enfase;
+         }
+      }
+      input[type="date"] {
+         border-bottom: none;
+      }
+      select {
+         cursor: pointer;
+         option {
+            background-color: $cor-contraste-escuro-lighter1;
+         }
+      }
+      .form-btn {
+         display: block;
+         background-color: transparent;
+         color: $cor-enfase;
+         padding: 8px 60px;
+         margin: 0px auto;
+         border: 1px solid currentColor;
+         transition: .3s;
+         @include font(button);
+         @include shadow(button);
+         &:hover {
+            box-shadow: 0px 0px 0px 2px $cor-contraste-escuro-lighter1,
+                        0px 0px 0px 3px $cor-enfase;
+            transform: scale(1.01);
+         }
+      }
+   }
+}
+
+.js .contact .js-select-btns .contact-btn, .js .contact .js-select-btns .reserva-btn {
+   span:first-of-type {
+      background-color: transparent;
+   }
+   &.ativo span:first-of-type {
+      background-color: $cor-enfase;
+   }
+}
+
+.js .js-contact-form, .js .js-reserva-form {
+   display: none;
+   &.ativo {
+      display: block;
+   }
+}
+
+/* INFO */
+
+.contact {
+   .contact-info {
+      grid-column: 7 / -1;
+      grid-row: 2;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      color: $cor-contraste-claro;
+      margin-bottom: 30px;
+      .contact-info-container {
+         flex: 0 1 170px;
+         padding: 0px 10px 10px 0px;
+         border-bottom: 1px solid currentColor;
+         border-right: 1px solid currentColor;
+         margin-top: 10px;
+         &:not(:first-of-type) {
+            padding-left: 20px;
+         }
+         .contact-info-title {
+            display: flex;
+            margin-bottom: 10px;
+            h2 {
+               @include font(info-small-title);
+            }
+            .contact-info-img {
+               margin-right: 5px
+            }
+         }
+         .contact-info-text {
+            @include font(info-small);
+         }
+      }
+   }
+   .contact-socials {
+      grid-column: 7 / -1;
+      grid-row: 3;
+      margin-bottom: 30px;
+      ul {
+         display: flex;
+         justify-content: flex-end;
+         color: $cor-contraste-claro;
+         li:not(:last-of-type) {
+            margin-right: 10px;
+         }
+         a {
+            font-size: 3rem !important;
+            padding: 5px;
+            transition: .3s;
+            &:hover {
+               transform: scale(1.15);
+            }
+         }
+      }
+   }
+   .contact-quote {
+      grid-column: 7 / -1;
+      grid-row: 4;
+      background-color: $cor-primaria-darker1;
+      color: $cor-contraste-claro;
+      padding: 30px 0px 30px 10px;
+      margin-right: -15px;
+      @include font(quote);
+      span {
+         display: block;
+         font-size: 2.4rem;
+         text-align: end;
+         margin: 10px 15px 0px 0px;
+      }
+   }
+}
+
+@media only screen and (max-width: 850px) {
+   .contact {
+      .select-btns {
+         grid-template-columns: repeat(5, minmax(10px, 1fr));
+         column-gap: 10px;
+      }
+   }
+}
+
+@media only screen and (max-width: 730px) {
+   .contact {
+      padding: 0px 10px 30px 10px;
+      .select-btns {
+         grid-column: 1 / -1;
+         grid-row: 2;
+         place-self: end stretch;
+         grid-template-columns: repeat(12, minmax(10px, 1fr));
+         margin-bottom: 30px;
+         .contact-btn {
+            grid-column: 1 / span 6;
+         }
+         .reserva-btn {
+            grid-column: 7 / -1;
+         }
+      }
+      .contact-title, .reserva-title {
+         grid-column: 1 / -1;
+         grid-row: 1;
+         font-size: 6.6rem !important;
+         margin-bottom: 30px;
+      }
+      .form {
+         grid-column: 2 / span 10;
+         grid-row: 3;
+         .form-btn {
+            margin: 0px auto 30px auto;
+         }
+      }
+   }
+   .contact {
+      .contact-info {
+         grid-column: 1 / -1;
+         grid-row: 4;
+      }
+      .contact-socials {
+         grid-column: 1 / -1;
+         grid-row: 5;
+         margin-bottom: 30px;
+      }
+      .contact-quote {
+         grid-column: 2 / -1;
+         grid-row: 6;
+         margin-right: -10px;
+         span {
+            margin: 10px 10px 0px 0px;
+         }
+      }
+   }
+}
+
+@media only screen and (max-width: 600px) {
+   .contact {
+      .contact-title, .reserva-title {
+         font-size: 6rem !important;
+      }
+      .form {
+         grid-column: 1 / -1;
+         grid-row: 3;
+      }
+   }
+}

@@ -1,0 +1,973 @@
+@import 'historia.scss';
+
+.vinhos-bg {
+   background-color: $cor-contraste-claro
+}
+
+/* NAVBAR */
+
+.vinhos-navbar {
+   max-width: 360px;
+   color: $cor-primaria;
+   background-color: $cor-secundaria;
+   box-shadow: 0px 0px 0px 2px $cor-primaria,
+               0px 0px 0px 8px $cor-secundaria,
+               0px 0px 4px 10px rgba(0,0,0, 0.15);
+   padding: 3px 10px;
+   margin: 0px auto;
+   position: sticky;
+   top: 101px;
+   z-index: 20;
+   @include font(menu-name);
+   ul {
+      display: flex;
+      justify-content: space-between;
+      li {
+         a {
+            display: inline-block;
+            padding: 10px;
+         }
+         &::before {
+            content: '';
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: -5px;
+         }
+         &:first-of-type::before {
+            background-color: $cor-vinhos1;
+         }
+         &:nth-of-type(2)::before {
+            background-color: $cor-vinhos2;
+         }
+         &:nth-of-type(3)::before {
+            background-color: $cor-contraste-claro;
+         }
+      }
+   }
+}
+
+/* ABERTURA */
+
+.abertura-bg {
+   background: linear-gradient(
+      to bottom,
+      $cor-contraste-claro 65%,
+      $cor-vinhos1 85%
+   );
+   .abertura {
+      padding: 120px 15px 0px 15px;
+      .abertura-img {
+         grid-column: 1 / -1;
+         grid-row: 1;
+         place-self: start center;
+         width: 645px;
+         height: 400px;
+         img {
+            object-fit: cover;
+            object-position: 50% 50%;
+         }
+      }
+      .abertura-card {
+         grid-column: 1 / -1;
+         grid-row: 2;
+         place-self: start center;
+         max-width: 550px;
+         background-color: $cor-secundaria;
+         color: $cor-contraste-escuro;
+         padding: 30px 20px 20px 20px;
+         box-shadow: 0px 0px 4px 4px rgba(0,0,0, 0.15);
+         position: relative;
+         top: -60px;
+         @include font(text);
+      }
+   }
+}
+
+.rose-bg {
+   background: linear-gradient(
+      to bottom,
+      $cor-vinhos1 85%,
+      $cor-vinhos2 95%
+   );
+   .rose {
+      padding: 60px 15px;
+      .rose-img {
+         grid-column: 2 / span 5;
+         grid-row: 1 / span 4;
+         place-self: end stretch;
+         height: 600px;
+         position: relative;
+         top: -80px;
+         z-index: 2;
+         img {
+            object-fit: cover;
+            object-position: 50% 50%;
+         }
+      }
+      .rose-detalhe {
+         grid-column: 1 / span 3;
+         grid-row: 1 / span 4;
+         place-self: end stretch;
+         display: block;
+         background-color: $cor-enfase;
+         height: 460px;
+         margin-left: -15px;
+      }
+      .rose-title {
+         grid-column: 7 / span 6;
+         grid-row: 1;
+         place-self: start end;
+         color: $cor-contraste-claro;
+         margin-bottom: 60px;
+         @include font(title-large);
+      }
+      .rose-safras, .rose-especiais {
+         grid-column: 7 / -1;
+         grid-row: 2;
+         color: $cor-contraste-escuro;
+         margin-bottom: 60px;
+         @include font(text);
+         li:first-of-type {
+            border-bottom: 1px solid currentColor;
+         }
+         li:not(:first-of-type) {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            @include font(menu-name);
+         }
+      }
+      .rose-especiais {
+         grid-row: 3;
+      }
+   }
+   .rose-lendario {
+      padding: 60px 15px;
+      .rose-lendario-title, .rose-lendario-title2 {
+         grid-column: 1 / span 6;
+         grid-row: 1;
+         color: $cor-contraste-escuro;
+         margin-bottom: 30px;
+         @include font(section-title);
+         &::before {
+            content: '';
+            display: inline-block;
+            background-color: currentColor;
+            width: 8px;
+            height: 36px;
+            margin-right: 10px;
+            position: relative;
+            top: 3px;
+         }
+      }
+      .rose-lendario-text, .rose-lendario-text2 {
+         grid-column: 1 / span 6;
+         grid-row: 2;
+         color: $cor-contraste-escuro;
+         margin-bottom: 20px;
+         @include font(text);
+      }
+      .rose-lendario-info, .rose-lendario-info2 {
+         grid-column: 1 / span 6;
+         grid-row: 3;
+         display: flex;
+         justify-content: space-between;
+         margin-bottom: 30px;
+         @include font(menu-name);
+         ul {
+            &:not(:last-of-type) {
+               margin-right: 15px;
+            }
+            li {
+               display: flex;
+               align-items: center;
+               &::before {
+                  content: '';
+                  display: inline-block;
+                  width: 5px;
+                  height: 5px;
+                  background-color: $cor-contraste-escuro;
+                  margin-right: 5px;
+               }
+               &:not(:last-of-type) {
+                  margin-bottom: 10px;
+               }
+            }
+         }
+      }
+      .rose-lendario-price, .rose-lendario-price2 {
+         grid-column: 1 / span 6;
+         grid-row: 4;
+         place-self: start end;
+         max-width: fit-content;
+         color: $cor-contraste-escuro;
+         border-bottom: 1px solid currentColor;
+         @include font(text);
+      }
+      .rose-lendario-title2 {
+         grid-row: 5;
+         margin-top: 60px;
+      }
+      .rose-lendario-text2 {
+         grid-row: 6;
+      }
+      .rose-lendario-info2 {
+         grid-row: 7;
+      }
+      .rose-lendario-price2 {
+         grid-row: 8;
+      }
+      .rose-lendario-img {
+         grid-column: 7 / span 5;
+         grid-row: 1 / span 9;
+         place-self: end stretch;
+         height: 600px;
+         position: relative;
+         top: -80px;
+         z-index: 2;
+         img {
+            object-fit: cover;
+            object-position: 50% 50%;
+         }
+      }
+      .rose-lendario-detalhe {
+         grid-column: 10 / -1;
+         grid-row: 1 / span 9;
+         place-self: end stretch;
+         height: 460px;
+         background-color: $cor-enfase;
+         margin-right: -15px;
+      }
+   }
+}
+
+.tinto-bg {
+   background: linear-gradient(
+      to bottom,
+      $cor-vinhos2 85%,
+      $cor-contraste-claro 95%
+   );
+   .tinto {
+      padding: 60px 15px;
+      .tinto-img {
+         grid-column: 7 / span 5;
+         grid-row: 1 / span 4;
+         place-self: end stretch;
+         height: 600px;
+         position: relative;
+         top: -80px;
+         z-index: 2;
+         img {
+            object-fit: cover;
+            object-position: 50% 50%;
+         }
+      }
+      .tinto-detalhe {
+         grid-column: 10 / span 3;
+         grid-row: 1 / span 4;
+         place-self: end stretch;
+         display: block;
+         background-color: $cor-enfase-lighter1;
+         height: 460px;
+         margin-right: -15px;
+      }
+      .tinto-title {
+         grid-column: 1 / span 6;
+         grid-row: 1;
+         place-self: start;
+         color: $cor-contraste-claro;
+         margin-bottom: 60px;
+         @include font(title-large);
+      }
+      .tinto-safras, .tinto-especiais {
+         grid-column: 1 / span 6;
+         grid-row: 2;
+         color: $cor-contraste-escuro;
+         margin-bottom: 60px;
+         @include font(text);
+         li:first-of-type {
+            border-bottom: 1px solid currentColor;
+         }
+         li:not(:first-of-type) {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            @include font(menu-name);
+         }
+      }
+      .tinto-especiais {
+         grid-row: 3;
+      }
+   }
+   .tinto-lendario {
+      padding: 60px 15px;
+      .tinto-lendario-title, .tinto-lendario-title2 {
+         grid-column: 7 / -1;
+         grid-row: 1;
+         color: $cor-contraste-escuro;
+         margin-bottom: 30px;
+         @include font(section-title);
+         &::before {
+            content: '';
+            display: inline-block;
+            background-color: currentColor;
+            width: 8px;
+            height: 36px;
+            margin-right: 10px;
+            position: relative;
+            top: 3px;
+         }
+      }
+      .tinto-lendario-text, .tinto-lendario-text2 {
+         grid-column: 7 / -1;
+         grid-row: 2;
+         color: $cor-contraste-escuro;
+         margin-bottom: 20px;
+         @include font(text);
+      }
+      .tinto-lendario-info, .tinto-lendario-info2 {
+         grid-column: 7 / -1;
+         grid-row: 3;
+         display: flex;
+         justify-content: space-between;
+         margin-bottom: 30px;
+         @include font(menu-name);
+         ul {
+            &:not(:last-of-type) {
+               margin-right: 15px;
+            }
+            li {
+               display: flex;
+               align-items: center;
+               &::before {
+                  content: '';
+                  display: inline-block;
+                  width: 5px;
+                  height: 5px;
+                  background-color: $cor-contraste-escuro;
+                  margin-right: 5px;
+               }
+               &:not(:last-of-type) {
+                  margin-bottom: 10px;
+               }
+            }
+         }
+      }
+      .tinto-lendario-price, .tinto-lendario-price2 {
+         grid-column: 7 / -1;
+         grid-row: 4;
+         place-self: start end;
+         max-width: fit-content;
+         color: $cor-contraste-escuro;
+         border-bottom: 1px solid currentColor;
+         @include font(text);
+      }
+      .tinto-lendario-title2 {
+         grid-row: 5;
+         margin-top: 60px;
+      }
+      .tinto-lendario-text2 {
+         grid-row: 6;
+      }
+      .tinto-lendario-info2 {
+         grid-row: 7;
+      }
+      .tinto-lendario-price2 {
+         grid-row: 8;
+      }
+      .tinto-lendario-img {
+         grid-column: 2 / span 5;
+         grid-row: 1 / span 9;
+         place-self: end stretch;
+         height: 600px;
+         position: relative;
+         top: -80px;
+         z-index: 2;
+         img {
+            object-fit: cover;
+            object-position: 50% 50%;
+         }
+      }
+      .tinto-lendario-detalhe {
+         grid-column: 1 / span 3;
+         grid-row: 1 / span 9;
+         place-self: end stretch;
+         height: 460px;
+         background-color: $cor-enfase-lighter1;
+         margin-left: -15px;
+      }
+   }
+}
+
+.branco-bg {
+   background-color: $cor-contraste-claro;
+   .branco {
+      padding: 60px 15px;
+      .branco-img {
+         grid-column: 2 / span 5;
+         grid-row: 1 / span 4;
+         place-self: end stretch;
+         height: 600px;
+         position: relative;
+         top: -80px;
+         z-index: 2;
+         img {
+            object-fit: cover;
+            object-position: 50% 50%;
+         }
+      }
+      .branco-detalhe {
+         grid-column: 1 / span 3;
+         grid-row: 1 / span 4;
+         place-self: end stretch;
+         display: block;
+         background-color: $cor-enfase-darker1;
+         height: 460px;
+         margin-left: -15px;
+      }
+      .branco-title {
+         grid-column: 7 / span 6;
+         grid-row: 1;
+         place-self: start end;
+         color: $cor-contraste-escuro;
+         margin-bottom: 60px;
+         @include font(title-large);
+      }
+      .branco-safras, .branco-especiais {
+         grid-column: 7 / -1;
+         grid-row: 2;
+         color: $cor-contraste-escuro;
+         margin-bottom: 60px;
+         @include font(text);
+         li:first-of-type {
+            border-bottom: 1px solid currentColor;
+         }
+         li:not(:first-of-type) {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            @include font(menu-name);
+         }
+      }
+      .branco-especiais {
+         grid-row: 3;
+      }
+   }
+   .branco-lendario {
+      padding: 60px 15px;
+      .branco-lendario-title, .branco-lendario-title2 {
+         grid-column: 1 / span 6;
+         grid-row: 1;
+         color: $cor-contraste-escuro;
+         margin-bottom: 30px;
+         @include font(section-title);
+         &::before {
+            content: '';
+            display: inline-block;
+            background-color: currentColor;
+            width: 8px;
+            height: 36px;
+            margin-right: 10px;
+            position: relative;
+            top: 3px;
+         }
+      }
+      .branco-lendario-text, .branco-lendario-text2 {
+         grid-column: 1 / span 6;
+         grid-row: 2;
+         color: $cor-contraste-escuro;
+         margin-bottom: 20px;
+         @include font(text);
+      }
+      .branco-lendario-info, .branco-lendario-info2 {
+         grid-column: 1 / span 6;
+         grid-row: 3;
+         display: flex;
+         justify-content: space-between;
+         margin-bottom: 30px;
+         @include font(menu-name);
+         ul {
+            &:not(:last-of-type) {
+               margin-right: 15px;
+            }
+            li {
+               display: flex;
+               align-items: center;
+               &::before {
+                  content: '';
+                  display: inline-block;
+                  width: 5px;
+                  height: 5px;
+                  background-color: $cor-contraste-escuro;
+                  margin-right: 5px;
+               }
+               &:not(:last-of-type) {
+                  margin-bottom: 10px;
+               }
+            }
+         }
+      }
+      .branco-lendario-price, .branco-lendario-price2 {
+         grid-column: 1 / span 6;
+         grid-row: 4;
+         place-self: start end;
+         max-width: fit-content;
+         color: $cor-contraste-escuro;
+         border-bottom: 1px solid currentColor;
+         @include font(text);
+      }
+      .branco-lendario-title2 {
+         grid-row: 5;
+         margin-top: 60px;
+      }
+      .branco-lendario-text2 {
+         grid-row: 6;
+      }
+      .branco-lendario-info2 {
+         grid-row: 7;
+      }
+      .branco-lendario-price2 {
+         grid-row: 8;
+      }
+      .branco-lendario-img {
+         grid-column: 7 / span 5;
+         grid-row: 1 / span 9;
+         place-self: end stretch;
+         height: 600px;
+         position: relative;
+         top: -80px;
+         z-index: 2;
+         img {
+            object-fit: cover;
+            object-position: 50% 50%;
+         }
+      }
+      .branco-lendario-detalhe {
+         grid-column: 10 / -1;
+         grid-row: 1 / span 9;
+         place-self: end stretch;
+         height: 460px;
+         background-color: $cor-enfase-darker1;
+         margin-right: -15px;
+      }
+   }
+}
+
+.prasert-bg {
+   background-color: $cor-contraste-escuro;
+   .prasert {
+      padding: 60px 15px;
+      .prasert-img {
+         grid-column: 1 / span 6;
+         grid-row: 1 / span 3;
+         height: 800px;
+         img {
+            filter: grayscale(1);
+            object-fit: cover;
+            object-position: 50% 50%;
+         }
+      }
+      .prasert-title {
+         grid-column: 7 / -1;
+         grid-row: 1;
+         background-color: $cor-contraste-claro;
+         color: $cor-contraste-escuro;
+         padding: 10px 10px;
+         margin-left: -20px;
+         @include font(title);
+      }
+      .prasert-text {
+         grid-column: 8 / -1;
+         grid-row: 3;
+         background-color: $cor-contraste-claro;
+         padding: 30px 20px;
+         p {
+            color: $cor-contraste-escuro;
+            margin-bottom: 30px;
+            @include font(text);
+            span {
+               background-color: $cor-contraste-escuro;
+               color: $cor-contraste-claro;
+            }
+         }
+         .prasert-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            @include font(menu-name);
+            ul {
+               &:not(:last-of-type) {
+                  margin-right: 15px;
+               }
+               li {
+                  display: flex;
+                  align-items: center;
+                  &::before {
+                     content: '';
+                     display: inline-block;
+                     width: 5px;
+                     height: 5px;
+                     background-color: $cor-contraste-escuro;
+                     margin-right: 5px;
+                  }
+                  &:not(:last-of-type) {
+                     margin-bottom: 10px;
+                  }
+               }
+            }
+         }
+         .prasert-price {
+            display: flex;
+            justify-content: flex-end;
+            em {
+               max-width: fit-content;
+               text-align: end;
+               color: $cor-contraste-escuro;
+               border-bottom: 1px solid currentColor;
+               @include font(text);
+            }
+         }
+      }
+   }
+}
+
+/* ANIMAÇÕES COM JS */
+
+.js {
+   .rose-bg, .branco-bg, .tinto-bg {
+      overflow: hidden;
+      .js-vinhos-anime.rose, .js-vinhos-anime.branco, .js-vinhos-anime.tinto {
+         opacity: 0;
+         transform: translate(150px, 100px);
+         &.ativo {
+            animation: showWine 1.5s ease-out forwards;
+         }
+      }
+      .js-vinhos-anime.rose-lendario, .js-vinhos-anime.branco-lendario, .js-vinhos-anime.tinto-lendario {
+         opacity: 0;
+         transform: translate(-150px, 100px);
+         &.ativo {
+            animation: showWine 1.5s ease-out forwards;
+         }
+      }
+   }
+}
+
+@keyframes showWine {
+   from {
+   } to {
+      opacity: 1;
+      transform: translate(0px, 0px);
+   }
+}
+
+/* RESPONSIVIDADE */
+
+@media only screen and (max-width: 850px) {
+   .vinhos-navbar {
+      top: 77px;
+   }
+   .abertura-bg {
+      .abertura {
+         padding: 60px 10px 30px 10px;
+         .abertura-img {
+            grid-column: 1 / -1;
+            grid-row: 1;
+            width: auto;
+            height: 350px;
+         }
+         .abertura-card {
+            top: -30px;
+         }
+      }
+   }
+   .rose-bg, .branco-bg {
+      .rose, .branco {
+         padding: 0px 10px 30px 10px;
+         .rose-img, .branco-img {
+            grid-column: 2 / span 10;
+            grid-row: 2;
+            place-self: start stretch;
+            height: 350px;
+            margin-bottom: 30px;
+            top: 0px;
+            img {
+               object-position: 50% 55%;
+            }
+         }
+         .rose-detalhe, .branco-detalhe {
+            display: none;
+         }
+         .rose-title, .branco-title {
+            grid-column: 1 / -1;
+            grid-row: 1;
+            place-self: start end;
+            font-size: 6.6rem !important;
+            margin-bottom: 30px;
+         }
+         .rose-safras, .rose-especiais, .branco-safras, .branco-especiais {
+            grid-column: 1 / -1;
+            grid-row: 3;
+            margin-bottom: 30px;
+         }
+         .rose-especiais, .branco-especiais {
+            grid-row: 4;
+         }
+      }
+      .rose-lendario, .branco-lendario {
+         padding: 0px 10px 30px 10px;
+         .rose-lendario-title, .rose-lendario-title2, .branco-lendario-title, .branco-lendario-title2 {
+            grid-column: 1 / -1;
+            grid-row: 2;
+            margin-bottom: 20px;
+         }
+         .rose-lendario-text, .rose-lendario-text2, .branco-lendario-text, .branco-lendario-text2 {
+            grid-column: 1 / span 6;
+            grid-row: 3;
+            margin-bottom: 20px;
+         }
+         .rose-lendario-info, .rose-lendario-info2, .branco-lendario-info, .branco-lendario-info2 {
+            grid-column: 7 / -1;
+            grid-row: 3;
+            justify-content: space-around;
+            margin: 0px 0px 20px 20px;
+         }
+         .rose-lendario-price, .rose-lendario-price2, .branco-lendario-price, .branco-lendario-price2 {
+            grid-column: 7 / -1;
+            grid-row: 4;
+         }
+         .rose-lendario-title2, .branco-lendario-title2 {
+            grid-row: 5;
+            margin-top: 30px;
+         }
+         .rose-lendario-text2, .branco-lendario-text2 {
+            grid-row: 6;
+         }
+         .rose-lendario-info2, .branco-lendario-info2 {
+            grid-row: 6;
+         }
+         .rose-lendario-price2, .branco-lendario-price2 {
+            grid-row: 7;
+         }
+         .rose-lendario-img, .branco-lendario-img {
+            grid-column: 2 / span 10;
+            grid-row: 1;
+            place-self: end stretch;
+            height: 350px;
+            margin-bottom: 30px;
+            top: 0px;
+         }
+         .rose-lendario-detalhe, .branco-lendario-detalhe {
+            display: none;
+         }
+      }
+   }
+   .tinto-bg {
+      .tinto {
+         padding: 30px 10px;
+         .tinto-img {
+            grid-column: 2 / span 10;
+            grid-row: 2;
+            place-self: start stretch;
+            height: 350px;
+            margin-bottom: 30px;
+            top: 0px;
+         }
+         .tinto-detalhe {
+            display: none;
+         }
+         .tinto-title {
+            grid-column: 1 / -1;
+            grid-row: 1;
+            font-size: 6.6rem !important;
+            margin-bottom: 30px;
+         }
+         .tinto-safras, .tinto-especiais {
+            grid-column: 1 / -1;
+            grid-row: 3;
+            margin-bottom: 30px;
+         }
+         .tinto-especiais {
+            grid-row: 4;
+         }
+      }
+      .tinto-lendario {
+         padding: 0px 10px 30px 10px;
+         .tinto-lendario-title, .tinto-lendario-title2 {
+            grid-column: 1 / -1;
+            grid-row: 2;
+            margin-bottom: 20px;
+         }
+         .tinto-lendario-text, .tinto-lendario-text2 {
+            grid-column: 1 / span 6;
+            grid-row: 3;
+            margin-bottom: 20px;
+         }
+         .tinto-lendario-info, .tinto-lendario-info2 {
+            grid-column: 7 / span 6;
+            grid-row: 3;
+            justify-content: space-around;
+            margin-bottom: 20px;
+         }
+         .tinto-lendario-price, .tinto-lendario-price2 {
+            grid-column: 7 / -1;
+            grid-row: 4;
+            place-self: start end;
+         }
+         .tinto-lendario-title2 {
+            grid-row: 5;
+            margin-top: 30px;
+         }
+         .tinto-lendario-text2 {
+            grid-row: 6;
+         }
+         .tinto-lendario-info2 {
+            grid-row: 6;
+         }
+         .tinto-lendario-price2 {
+            grid-row: 7;
+         }
+         .tinto-lendario-img {
+            grid-column: 2 / span 10;
+            grid-row: 1;
+            place-self: start stretch;
+            height: 350px;
+            margin-bottom: 30px;
+            top: 0px;
+            img {
+               object-position: 50% 67%;
+            }
+         }
+         .tinto-lendario-detalhe {
+            display: none;
+         }
+      }
+   }
+   .branco-bg {
+      .branco {
+         .branco-title {
+            margin-top: 30px;
+         }
+      }
+   }
+   .prasert-bg {
+      .prasert {
+         padding: 30px 10px;
+         .prasert-img {
+            grid-column: 1 / -1;
+            grid-row: 2;
+            height: 350px;
+            margin-bottom: 20px;
+            img {
+               object-position: 50% 40%;
+            }
+         }
+         .prasert-title {
+            grid-column: 1 / -1;
+            grid-row: 1;
+            margin: 0px 0px 10px -10px;
+         }
+         .prasert-text {
+            grid-column: 2 / span 10;
+            grid-row: 3;
+            padding: 20px 10px;
+            p {
+               margin-bottom: 20px;
+            }
+            .prasert-info {
+               margin-bottom: 20px;
+            }
+         }
+      }
+   }
+}
+
+@media only screen and (max-width: 600px) {
+   .rose-bg, .branco-bg {
+      .rose, .branco {
+         .rose-img, .branco-img {
+            grid-column: 1 / -1;
+            grid-row: 2;
+         }
+      }
+      .rose-lendario, .branco-lendario {
+         .rose-lendario-text, .rose-lendario-text2, .branco-lendario-text, .branco-lendario-text2 {
+            grid-column: 1 / -1;
+            grid-row: 3;
+         }
+         .rose-lendario-info, .rose-lendario-info2, .branco-lendario-info, .branco-lendario-info2 {
+            grid-column: 1 / -1;
+            grid-row: 4;
+         }
+         .rose-lendario-price, .rose-lendario-price2, .branco-lendario-price, .branco-lendario-price2 {
+            grid-row: 5;
+         }
+         .rose-lendario-title2, .branco-lendario-title2 {
+            grid-row: 6;
+         }
+         .rose-lendario-text2, .branco-lendario-text2 {
+            grid-row: 7;
+         }
+         .rose-lendario-info2, .branco-lendario-info2 {
+            grid-row: 8;
+         }
+         .rose-lendario-price2, .branco-lendario-price2 {
+            grid-row: 9;
+         }
+         .rose-lendario-img, .branco-lendario-img {
+            grid-column: 1 / -1;
+            grid-row: 1;
+         }
+      }
+   }
+   .tinto-bg {
+      .tinto {
+         .tinto-img {
+            grid-column: 1 / -1;
+            grid-row: 2;
+         }
+      }
+      .tinto-lendario {
+         .tinto-lendario-title, .tinto-lendario-title2 {
+            grid-column: 1 / -1;
+            grid-row: 2;
+            margin-bottom: 20px;
+         }
+         .tinto-lendario-text, .tinto-lendario-text2 {
+            grid-column: 1 / -1;
+            grid-row: 3;
+         }
+         .tinto-lendario-info, .tinto-lendario-info2 {
+            grid-column: 1 / -1;
+            grid-row: 4;
+         }
+         .tinto-lendario-price, .tinto-lendario-price2 {
+            grid-row: 5;
+         }
+         .tinto-lendario-title2 {
+            grid-row: 6;
+         }
+         .tinto-lendario-text2 {
+            grid-row: 7;
+         }
+         .tinto-lendario-info2 {
+            grid-row: 8;
+         }
+         .tinto-lendario-price2 {
+            grid-row: 9;
+         }
+         .tinto-lendario-img {
+            grid-column: 1 / -1;
+         }
+      }
+   }
+   .prasert-bg {
+      .prasert {
+         .prasert-text {
+            grid-column: 1 / -1;
+         }
+      }
+   }
+}
