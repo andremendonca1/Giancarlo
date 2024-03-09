@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+* {
+   padding: 0px;
+   border: 0px;
+   border-radius: 0px;
+   margin: 0px;
+   outline: 0px;
+   box-sizing: border-box;
+   vertical-align: baseline;
+}
+
+html {
+   font-size: 62.5%;
+}
+
+li {
+   list-style: none;
+}
+
+a {
+   display: block;
+   text-decoration: none;
+   color: inherit;
+   cursor: pointer;
+}
+
+button {
+   cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6 {
+   font-weight: inherit;
+}
+
+strong, em, dfn, small, address {
+   font-weight: inherit;
+   font-style: inherit;
+   font-size: inherit;
+}
+
+img {
+   display: block;
+   width: 100%;
+   height: 100%;
+}

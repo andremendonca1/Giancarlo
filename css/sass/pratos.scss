@@ -1,0 +1,521 @@
+@import 'style.scss';
+
+.pratos-img {
+   height: 550px;
+   @include shadow(main-img);
+   img {
+      object-fit: cover;
+      object-position: 50% 50%;
+   }
+}
+
+/* CARDÁPIO */
+
+.cardapio {
+   background-color: $cor-contraste-escuro-lighter1;
+   padding: 30px 15px 60px 15px;
+   @include shadow(body);
+   .cardapio-entradas {
+      grid-column: 1 / span 6;
+      grid-row: 1;
+      border-left: 1px solid $cor-contraste-claro;
+   }
+   .cardapio-saladas {
+      grid-column: 7 / -1;
+      grid-row: 1;
+      border-left: 1px solid $cor-contraste-claro;
+   }
+   h2 {
+      max-width: fit-content;
+      color: $cor-contraste-claro;
+      border-bottom: 1px solid currentColor;
+      margin-bottom: 20px;
+      @include font(menu-title);
+      @include shadow(menu-title);
+   }
+   .entradas-menu-item, .saladas-menu-item {
+      margin: 0px 10px 20px 10px;
+      & > strong, & > em {
+         color: $cor-contraste-claro;
+         @include font(menu-name);
+      }
+      & > em {
+         float: right;
+      }
+      & > strong > span {
+         display: inline-block;
+         width: 18px;
+         height: 14px;
+         margin-left: 5px;
+      }
+      & > p {
+         color: $cor-primaria;
+         @include font(menu-description);
+      }
+   }
+}
+
+/* PRINCIPAL */
+
+.principal {
+   padding: 60px 15px;
+   .principal-menu {
+      grid-column: 1 / span 3;
+      grid-row: 1 / span 2;
+      h1 {
+         color: $cor-contraste-claro;
+         border-bottom: 1px solid currentColor;
+         @include font(menu-title);
+      }
+      .principal-menu-container {
+         display: flex;
+         flex-direction: column;
+         color: $cor-enfase;
+         @include font(menu-name);
+         .principal-menu-item {
+            padding: 20px 0px;
+            cursor: pointer;
+            transition: .3s;
+            &:hover {
+               transform: scale(1.07);
+            }
+            &::before {
+               content: '';
+               display: inline-block;
+               width: 10px;
+               height: 10px;
+               background-color: transparent;
+               border: 1px solid currentColor;
+               border-radius: 50%;
+               margin-right: 5px;
+               transition: .5s;
+            }
+         }
+         .principal-menu-item:not(:last-of-type) {
+            border-bottom: 1px solid currentColor;
+         }
+         .principal-menu-item.ativo {
+            &::before {
+               background-color: currentColor;
+            }
+         }
+      }
+   }
+   .principal-description {
+      grid-column: 5 / span 4;
+      grid-row: 1;
+      color: $cor-contraste-claro;
+      @include font(text);
+      .principal-description-item {
+         display: none;
+         margin-top: 98px;
+         animation: showMeal .5s ease-out;
+         span {
+            color: $cor-enfase;
+            font-size: 1.6rem;
+            text-transform: uppercase;
+         }
+      }
+      .principal-description-item.ativo {
+         display: block;
+      }
+   }
+   .principal-icon {
+      grid-column: 5 / span 4;
+      grid-row: 2;
+      place-self: center end;
+      .principal-icon-item {
+         display: none;
+         width: 30px;
+         height: 30px;
+         animation: showMeal .5s ease-out;
+      }
+      .principal-icon-item.ativo {
+         display: block;
+      }
+   }
+   .principal-price {
+      grid-column: 5 / span 4;
+      grid-row: 3;
+      place-self: center end;
+      color: $cor-contraste-claro;
+      @include font(text);
+      .principal-price-item {
+         display: none;
+         border-bottom: 1px solid currentColor;
+         animation: showMeal 1s ease-out;
+      }
+      .principal-price-item.ativo {
+         display: block;
+      }
+   }
+   .principal-img {
+      grid-column: 9 / span 4;
+      grid-row: 1 / span 3;
+      .principal-img-item {
+         display: none;
+         animation: showMeal 1s ease-out;
+         div {
+            height: 537px;
+            img {
+               object-fit: cover;
+               object-position: 50% 50%;
+            }
+         }
+      }
+      .principal-img-item.ativo {
+         display: block;
+      }
+   }
+}
+
+@keyframes showMeal {
+   from {
+      opacity: 0;
+      transform: translateX(30px);
+   } to {
+      opacity: 1;
+      transform: translateX(0px);
+   }
+}
+
+/* CHEF */
+
+.chef {
+   background-color: $cor-contraste-claro;
+   padding: 60px 15px;
+   @include shadow(body-light);
+   .chef-title {
+      grid-column: 1 / span 8;
+      grid-row: 1;
+      color: $cor-contraste-escuro-lighter1;
+      margin-bottom: 60px;
+      @include font(title-large)
+   }
+   .chef-img {
+      grid-column: 1 / span 4;
+      grid-row: 2 / span 2;
+      height: 530px;
+      z-index: 10;
+      img {
+         object-fit: cover;
+         object-position: 50% 50%;
+      }
+   }
+   .chef-p1 {
+      grid-column: 5 / span 4;
+      grid-row: 2;
+      color: $cor-contraste-escuro-lighter1;
+      margin-right: 20px;
+      @include font(text);
+      span {
+         background-color: $cor-contraste-escuro-lighter1;
+         font-size: 1.6rem !important;
+         color: $cor-contraste-claro;
+         text-transform: uppercase;
+      }
+   }
+   .chef-p2 {
+      grid-column: 9 / span 4;
+      grid-row: 2;
+      color: $cor-contraste-escuro-lighter1;
+      margin-left: 20px;
+      @include font(text);
+   }
+   .chef-vinho {
+      grid-column: -1 / 5;
+      grid-row: 3;
+      place-self: end start;
+      display: flex;
+      justify-content: space-between;
+      background-color: $cor-primaria;
+      padding: 20px;
+      margin: 0px 0px 20px -20px;
+      .chef-vinho-info {
+         flex: 0 1 360px;
+         color: $cor-contraste-claro;
+         @include font(menu-description);
+      }
+      .chef-vinho-btn {
+         flex: 0 1 280px;
+         align-self: center;
+         @include button(light, brown)
+      }
+   }
+}
+
+/* BEBIDAS */
+
+.bebidas {
+   background-color: $cor-contraste-escuro-lighter1;
+   padding: 60px 15px 30px 15px;
+   @include shadow(body);
+   .bebidas-title {
+      grid-column: 2 / span 4;
+      grid-row: 1;
+      max-width: fit-content;
+      color: $cor-contraste-claro;
+      border-bottom: 1px solid currentColor;
+      margin-bottom: 60px;
+      @include font(title);
+      @include shadow(menu-title);
+   }
+   .bebidas-menu {
+      grid-column: 1 / span 5;
+      grid-row: 2;
+      ul:first-of-type {
+         padding-bottom: 30px;
+      }
+      ul:not(:first-of-type) {
+         padding-top: 20px;
+         border-top: 1px solid $cor-contraste-claro;
+         li:first-of-type {
+            text-transform: none;
+            color: $cor-primaria;
+            margin-bottom: 20px;
+            @include font(text);
+         }
+      }
+      .bebidas-menu-item {
+         display: flex;
+         justify-content: space-between;
+         gap: 15px;
+         color: $cor-contraste-claro;
+         @include font(menu-name);
+         &:not(:last-of-type) {
+            margin-bottom: 20px;
+         }
+         span > span {
+            text-transform: none;
+            color: $cor-primaria;
+         }
+      }
+   }
+   .bebidas-img {
+      grid-column: -1 / -7;
+      grid-row: 1 / span 3;
+      place-self: start end;
+      max-width: 455px;
+      @include shadow(img);
+   }
+}
+
+/* RESPONSIVO */
+
+@media only screen and (max-width: 910px) {
+   .chef .chef-title {
+      grid-column: 1 / span 10;
+      grid-row: 1;
+   }
+}
+
+@media only screen and (max-width: 850px) {
+   .pratos-img {
+      height: 350px;
+   }
+   .cardapio {
+      padding: 30px 10px;
+   }
+   .principal {
+      padding: 30px 10px;
+      .principal-menu {
+         grid-column: 1 / -1;
+         grid-row: 1;
+         margin-bottom: 20px;
+         h1 {
+            max-width: fit-content;
+            margin-bottom: 20px;
+         }
+         .principal-menu-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            .principal-menu-item {
+               padding: 10px;
+               border-left: 1px solid currentColor;
+            }
+            .principal-menu-item:not(:last-of-type) {
+               border-bottom: none;
+            }
+         }
+      }
+      .principal-description {
+         grid-column: 1 / span 7;
+         grid-row: 2;
+         place-self: start;
+         margin: 40px 0px;
+         .principal-description-item {
+            margin-top: 0px;
+         }
+      }
+      .principal-icon {
+         grid-column: 1 / span 7;
+         grid-row: 3;
+         margin-bottom: 20px;
+      }
+      .principal-price {
+         grid-column: 1 / span 7;
+         grid-row: 4;
+      }
+      .principal-img {
+         grid-column: 8 / span 5;
+         grid-row: 2 / span 4;
+         .principal-img-item {
+            div {
+               height: 450px;
+            }
+         }
+      }
+   }
+   .chef {
+      padding: 30px 10px;
+      .chef-title {
+         grid-column: 6 / span 7;
+         grid-row: 1;
+         font-size: 8.6rem !important;
+         margin-bottom: 0px;
+      }
+      .chef-img {
+         grid-column: 1 / span 5;
+         grid-row: 1;
+         height: 450px;
+         margin-bottom: 30px;
+      }
+      .chef-p1 {
+         grid-column: 1 / span 6;
+         grid-row: 2;
+         margin-bottom: 30px;
+      }
+      .chef-p2 {
+         grid-column: 7 / span 6;
+         grid-row: 2;
+         margin-bottom: 30px;
+      }
+      .chef-vinho {
+         grid-column: 1 / -1;
+         grid-row: 3;
+         margin: 0px 0px 0px -20px;
+      }
+   }
+   .bebidas {
+      padding: 30px 10px;
+      .bebidas-title {
+         grid-column: 1 / -1;
+         grid-row: 1;
+         place-self: start center;
+         margin-bottom: 40px;
+      }
+      .bebidas-menu {
+         grid-column: 2 / -2;
+         grid-row: 2;
+      }
+      .bebidas-img {
+         display: none;
+      }
+   }
+}
+
+@media only screen and (max-width: 600px) {
+   .cardapio {
+      .cardapio-entradas {
+         grid-column: 1 / -1;
+         grid-row: 1;
+         border-bottom: 1px solid $cor-contraste-claro;
+      }
+      .cardapio-saladas {
+         grid-column: 1 / -1;
+         grid-row: 2;
+         padding-top: 30px;
+      }
+   }
+   .principal {
+      .principal-menu {
+         grid-column: 1 / -1;
+         grid-row: 1;
+         margin-bottom: 20px;
+      }
+      .principal-description {
+         grid-column: 1 / -1;
+         grid-row: 3;
+         margin: 20px 0px;
+      }
+      .principal-icon {
+         grid-column: 1 / span 6;
+         grid-row: 4;
+         place-self: center;
+         margin-bottom: 0px;
+      }
+      .principal-price {
+         grid-column: 7 / span 6;
+         grid-row: 4;
+         place-self: center;
+      }
+      .principal-img {
+         grid-column: 1 / -1;
+         grid-row: 2;
+         .principal-img-item {
+            div {
+               height: 250px;
+            }
+            &:nth-of-type(4) {
+               img {
+                  object-position: 50% 80%;
+               }
+            }
+         }
+      }
+   }
+   .chef {
+      .chef-title {
+         grid-column: 1 / -1;
+         grid-row: 1;
+         font-size: 6.6rem !important;
+         margin-bottom: 30px;
+      }
+      .chef-img {
+         grid-column: 1 / -1;
+         grid-row: 2;
+         height: 450px;
+         margin-bottom: 30px;
+         img {
+            object-position: 50% 10%;
+         }
+      }
+      .chef-p1 {
+         grid-column: 1 / -1;
+         grid-row: 3;
+         margin: 0px 0px 30px 0px;
+      }
+      .chef-p2 {
+         grid-column: 1 / -1;
+         grid-row: 4;
+         margin: 0px 0px 30px 0px;
+      }
+      .chef-vinho {
+         grid-column: 1 / -1;
+         grid-row: 5;
+         display: flex;
+         flex-direction: column;
+         justify-content: space-between;
+         .chef-vinho-info {
+            flex: 0 1 0px;
+            margin-bottom: 20px;
+         }
+         .chef-vinho-btn {
+            flex: 0 1 0px;
+            align-self: start;
+         }
+      }
+   }
+}
+
+@media only screen and (max-width: 410px) {
+   .principal .principal-menu {
+      .principal-menu-container {
+         display: flex;
+         flex-direction: column;
+         flex-wrap: nowrap;
+      }
+   }
+}

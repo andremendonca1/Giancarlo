@@ -1,0 +1,867 @@
+@import 'pratos.scss';
+
+.sobremesas-img {
+   height: 550px;
+   @include shadow(main-img);
+   img {
+      object-fit: cover;
+      object-position: 50% 47%;
+   }
+}
+
+/* SOBREMESA */
+
+.sobremesa {
+   background-color: $cor-contraste-escuro-lighter1;
+   padding: 60px 15px;
+   .sobremesa-img {
+      grid-column: 1 / span 5;
+      grid-row: 1 / span 4;
+      height: 550px;
+      @include shadow(img);
+      img {
+         object-fit: cover;
+         object-position: 50% 50%;
+      }
+   }
+   .sobremesa-title {
+      grid-column: 6 / -1;
+      grid-row: 1;
+      max-width: fit-content;
+      color: $cor-contraste-claro;
+      border-bottom: 1px solid currentColor;
+      margin-bottom: 60px;
+      @include font(section-title);
+      @include shadow(section-title);
+   }
+   .sobremesa-text {
+      grid-column: 7 / -1;
+      grid-row: 2;
+      color: $cor-contraste-claro;
+      @include font(text);
+      @include shadow(text);
+      p:not(:last-of-type) {
+         padding-bottom: 20px;
+         border-bottom: 1px solid currentColor;
+      }
+      p:last-of-type {
+         padding-block: 20px;
+      }
+   }
+   .sobremesa-btn {
+      grid-column: 7 / -1;
+      grid-row: 3;
+      place-self: start end;
+      @include button(dark, brown);
+   }
+}
+
+.sobremesas-section-dark {
+   overflow: hidden;
+}
+
+/* BROWNIE */
+
+.brownie {
+   padding: 60px 15px;
+   .brownie-img {
+      grid-column: 1 / span 5;
+      grid-row: 1 / span 5;
+      height: 450px;
+      img {
+         object-fit: cover;
+         object-position: 50% 50%;
+      }
+   }
+   .brownie-title {
+      grid-column: 6 / -1;
+      grid-row: 1;
+      margin-bottom: 60px;
+      color: $cor-contraste-claro;
+      @include font(title-large);
+   }
+   .brownie-text {
+      grid-column: 7 / -1;
+      grid-row: 2;
+      color: $cor-contraste-claro;
+      padding-bottom: 20px;
+      border-bottom: 1px solid currentColor;
+      margin-bottom: 20px;
+      @include font(text);
+      span {
+         color: $cor-enfase;
+         font-size: 1.6rem;
+         text-transform: uppercase;
+      }
+   }
+   .brownie-info {
+      grid-column: 7 / -1;
+      grid-row: 3;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      color: $cor-contraste-claro;
+      @include font(info-small-title);
+      li::before {
+         content: '';
+         display: inline-block;
+         width: 10px;
+         height: 10px;
+         background-color: transparent;
+         border-radius: 50%;
+         border: 1px solid currentColor;
+         margin-right: 5px;
+      }
+      li.brownie-info-on::before {
+         background-color: currentColor;
+      }
+   }
+   .brownie-price {
+      grid-column: 7 / -1;
+      grid-row: 5;
+      place-self: end;
+      display: flex;
+      justify-content: stretch;
+      color: $cor-contraste-claro;
+      @include font(info-small-title);
+      .brownie-price-single {
+         display: flex;
+         padding-right: 30px;
+         border-right: 1px solid currentColor;
+         margin-right: 30px;
+      }
+      .brownie-price-couple {
+         display: flex;
+      }
+      img {
+         display: inline-block;
+         width: fit-content;
+         height: 24px;
+         margin-right: 10px;
+      }
+      em {
+         display: inline-block;
+         border-bottom: 1px solid currentColor;
+      }
+   }
+}
+
+.js .js-brownie {
+   opacity: 0;
+   &.ativo {
+      animation: showDessertRL 1s ease-out forwards;
+   }
+}
+
+/* MUFFIN */
+
+.muffin {
+   padding: 60px 15px;
+   .muffin-img {
+      grid-column: 8 / -1;
+      grid-row: 1 / span 5;
+      height: 450px;
+      img {
+         object-fit: cover;
+         object-position: 50% 50%;
+      }
+   }
+   .muffin-title {
+      grid-column: 1 / span 7;
+      grid-row: 1;
+      place-self: start end;
+      margin-bottom: 60px;
+      color: $cor-contraste-claro;
+      @include font(title-large);
+   }
+   .muffin-text {
+      grid-column: 1 / span 6;
+      grid-row: 2;
+      place-self: start end;
+      text-align: end;
+      color: $cor-contraste-claro;
+      padding-bottom: 20px;
+      border-bottom: 1px solid currentColor;
+      margin-bottom: 20px;
+      @include font(text);
+      span {
+         color: $cor-enfase;
+         font-size: 1.6rem;
+         text-transform: uppercase;
+      }
+   }
+   .muffin-info {
+      grid-column: 1 / span 6;
+      grid-row: 3;
+      place-self: start end;
+      text-align: end;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      color: $cor-contraste-claro;
+      @include font(info-small-title);
+      li::after {
+         content: '';
+         display: inline-block;
+         width: 10px;
+         height: 10px;
+         background-color: transparent;
+         border-radius: 50%;
+         border: 1px solid currentColor;
+         margin-left: 5px;
+      }
+      li.muffin-info-on::after {
+         background-color: currentColor;
+      }
+   }
+   .muffin-price {
+      grid-column: 1 / span 6;
+      grid-row: 5;
+      place-self: start;
+      display: flex;
+      justify-content: stretch;
+      color: $cor-contraste-claro;
+      @include font(info-small-title);
+      .muffin-price-single {
+         display: flex;
+         padding-right: 30px;
+         border-right: 1px solid currentColor;
+         margin-right: 30px;
+      }
+      .muffin-price-couple {
+         display: flex;
+      }
+      img {
+         display: inline-block;
+         width: fit-content;
+         height: 24px;
+         margin-right: 10px;
+      }
+      em {
+         display: inline-block;
+         border-bottom: 1px solid currentColor;
+      }
+   }
+}
+
+.js .js-muffin {
+   opacity: 0;
+   &.ativo {
+      animation: showDessertLR 1s ease-out forwards;
+   }
+}
+
+/* PANCAKE */
+
+.pancake {
+   padding: 60px 15px;
+   .pancake-img {
+      grid-column: 1 / span 5;
+      grid-row: 1 / span 5;
+      height: 450px;
+      transform: scaleX(-1);
+      img {
+         object-fit: cover;
+         object-position: 0% 50%;
+      }
+   }
+   .pancake-title {
+      grid-column: 6 / -1;
+      grid-row: 1;
+      margin-bottom: 60px;
+      color: $cor-contraste-claro;
+      @include font(title-large);
+   }
+   .pancake-text {
+      grid-column: 7 / -1;
+      grid-row: 2;
+      color: $cor-contraste-claro;
+      padding-bottom: 20px;
+      border-bottom: 1px solid currentColor;
+      margin-bottom: 20px;
+      @include font(text);
+      span {
+         color: $cor-enfase;
+         font-size: 1.6rem;
+         text-transform: uppercase;
+      }
+   }
+   .pancake-info {
+      grid-column: 7 / -1;
+      grid-row: 3;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      color: $cor-contraste-claro;
+      @include font(info-small-title);
+      li::before {
+         content: '';
+         display: inline-block;
+         width: 10px;
+         height: 10px;
+         background-color: transparent;
+         border-radius: 50%;
+         border: 1px solid currentColor;
+         margin-right: 5px;
+      }
+      li.pancake-info-on::before {
+         background-color: currentColor;
+      }
+   }
+   .pancake-price {
+      grid-column: 7 / -1;
+      grid-row: 5;
+      place-self: end;
+      display: flex;
+      justify-content: stretch;
+      color: $cor-contraste-claro;
+      @include font(info-small-title);
+      .pancake-price-single {
+         display: flex;
+         padding-right: 30px;
+         border-right: 1px solid currentColor;
+         margin-right: 30px;
+      }
+      .pancake-price-couple {
+         display: flex;
+      }
+      img {
+         display: inline-block;
+         width: fit-content;
+         height: 24px;
+         margin-right: 10px;
+      }
+      em {
+         display: inline-block;
+         border-bottom: 1px solid currentColor;
+      }
+   }
+}
+
+.js .js-pancake {
+   opacity: 0;
+   &.ativo {
+      animation: showDessertRL 1s ease-out forwards;
+   }
+}
+
+.first-img {
+   animation: dessertLoop 20s linear alternate infinite;
+   z-index: 50;
+}
+.second-img {
+   z-index: 40;
+}
+
+@keyframes dessertLoop {
+   0% {
+      opacity: 1;
+   }
+   25% {
+      opacity: 1;
+   }
+   30% {
+      opacity: 0;
+   }
+   75% {
+      opacity: 0;
+   }
+   80% {
+      opacity: 1;
+   }
+   100% {
+      opacity: 1;
+   }
+}
+
+@keyframes showDessertRL {
+   from {
+      opacity: 0;
+      transform: translateX(60px);
+   } to {
+      opacity: 1;
+      transform: translateX(0px);
+   }
+}
+
+@keyframes showDessertLR {
+   from {
+      opacity: 0;
+      transform: translateX(-60px);
+   } to {
+      opacity: 1;
+      transform: translateX(0px);
+   }
+}
+
+/* SABOR BRANCO */
+
+.sabor {
+   padding: 60px 15px;
+   background-color: $cor-contraste-claro;
+   @include shadow(body-light);
+   .sabor-title {
+      grid-column: 1 / span 5;
+      grid-row: 1;
+      color: $cor-contraste-escuro-lighter1;
+      margin-bottom: 60px;
+      @include font(title-large);
+   }
+   .sabor-text {
+      grid-column: 1 / span 5;
+      grid-row: 2;
+      color: $cor-contraste-escuro-lighter1;
+      margin-bottom: 20px;
+      @include font(text);
+   }
+   .sabor-tortas {
+      grid-column: 1 / span 6;
+      grid-row: 3;
+      color: $cor-contraste-escuro-lighter1;
+      margin-bottom: 10px;
+      h4 {
+         @include font(text);
+      }
+   }
+   .sabor-classicos {
+      grid-column: 1 / span 6;
+      grid-row: 4;
+      color: $cor-contraste-escuro-lighter1;
+      h4 {
+         @include font(text);
+      }
+   }
+   .sabor-tortas-container, .sabor-classicos-container {
+      padding: 10px;
+      border-width: 1px;
+      border-style: solid;
+      border-image-slice: 1;
+      border-image-source: linear-gradient(
+         to right,
+         $cor-contraste-escuro-lighter1 4%,
+         transparent 4%
+      );
+      @include font(menu-name);
+      li {
+         em {
+            float: right;
+         }
+         &:not(:last-of-type) {
+            margin-bottom: 10px;
+         }
+      }
+   }
+   .sabor-img {
+      grid-column: 7 / -1;
+      grid-row: 1 / span 5;
+      height: 700px;
+      img {
+         object-fit: cover;
+         object-position: 50% 50%;
+      }
+   }
+}
+
+/* PETIT GÂTEAU */
+
+.gateau {
+   background-color: $cor-contraste-escuro-lighter1;
+   padding: 60px 15px 30px 15px;
+   @include shadow(body);
+   .gateau-detalhe {
+      grid-column: 1 / span 11;
+      grid-row: 1;
+      height: 100px;
+      background-color: $cor-enfase;
+      margin: 0px 0px 30px -15px;
+   }
+   .gateau-img {
+      grid-column: 2 / span 5;
+      grid-row: 2 / span 3;
+      height: 600px;
+      position: relative;
+      top: -80px;
+      @include shadow(img);
+      img {
+         object-fit: cover;
+         object-position: 50% 50%;
+      }
+   }
+   .gateau-title {
+      grid-column: 7 / -1;
+      grid-row: 2;
+      max-width: fit-content;
+      color: $cor-contraste-claro;
+      border-bottom: 1px solid currentColor;
+      margin-bottom: 60px;
+      @include font(title);
+      @include shadow(section-title);
+   }
+   .gateau-text {
+      grid-column: 7 / -1;
+      grid-row: 3;
+      color: $cor-contraste-claro;
+      @include font(text);
+      @include shadow(text);
+      span {
+         font-size: 1.6rem;
+         text-shadow: none !important;
+         text-transform: uppercase;
+         color: $cor-contraste-escuro-lighter1;
+         background-color: $cor-contraste-claro;
+      }
+      p:not(:last-of-type) {
+         margin-bottom: 20px;
+      }
+   }
+   .gateau-price {
+      grid-column: 7 / -1;
+      grid-row: 4;
+      place-self: start end;
+      color: $cor-contraste-claro;
+      border-bottom: 1px solid currentColor;
+      @include font(text);
+   }
+}
+
+/* RESPONSIVO */
+
+@media only screen and (max-width: 850px) {
+   .sobremesas-img {
+      height: 350px;
+   }
+   .sobremesa {
+      padding: 30px 10px;
+      .sobremesa-img {
+         grid-column: 1 / span 5;
+         grid-row: 2 / span 4;
+         height: 400px;
+      }
+      .sobremesa-title {
+         grid-column: 1 / -1;
+         grid-row: 1;
+         margin-bottom: 30px;
+      }
+      .sobremesa-text {
+         grid-column: 6 / -1;
+         grid-row: 2;
+      }
+      .sobremesa-btn {
+         grid-column: 6 / -1;
+         grid-row: 3;
+      }
+   }
+   .brownie {
+      padding: 30px 10px;
+      .brownie-img {
+         grid-column: 1 / span 5;
+         grid-row: 2 / span 5;
+         height: 350px;
+      }
+      .brownie-title {
+         grid-column: 1 / -1;
+         grid-row: 1;
+         margin-bottom: 30px;
+         font-size: 8.6rem !important;
+      }
+      .brownie-text {
+         grid-column: 6 / -1;
+         grid-row: 2;
+      }
+      .brownie-info {
+         grid-column: 6 / -1;
+         grid-row: 3;
+      }
+      .brownie-price {
+         grid-column: 6 / -1;
+         grid-row: 5;
+      }
+   }
+   .muffin {
+      padding: 30px 10px;
+      .muffin-img {
+         grid-column: 8 / -1;
+         grid-row: 2 / span 5;
+         height: 350px;
+      }
+      .muffin-title {
+         grid-column: 1 / -1;
+         grid-row: 1;
+         font-size: 8.6rem !important;
+         margin-bottom: 30px;
+      }
+      .muffin-text {
+         grid-column: 1 / span 7;
+         grid-row: 2;
+      }
+      .muffin-info {
+         grid-column: 1 / span 7;
+         grid-row: 3;
+      }
+      .muffin-price {
+         grid-column: 1 / span 7;
+         grid-row: 5;
+      }
+   }
+   .pancake {
+      padding: 30px 10px;
+      .pancake-img {
+         grid-column: 1 / span 5;
+         grid-row: 2 / span 5;
+         height: 350px;
+      }
+      .pancake-title {
+         grid-column: 1 / -1;
+         grid-row: 1;
+         font-size: 8.6rem !important;
+         margin-bottom: 30px;
+      }
+      .pancake-text {
+         grid-column: 6 / -1;
+         grid-row: 2;
+      }
+      .pancake-info {
+         grid-column: 6 / -1;
+         grid-row: 3;
+      }
+      .pancake-price {
+         grid-column: 6 / -1;
+         grid-row: 5;
+      }
+   }
+   .sabor {
+      padding: 30px 10px;
+      .sabor-title {
+         grid-column: 1 / -1;
+         grid-row: 1;
+         font-size: 8.6rem !important;
+         margin-bottom: 30px;
+      }
+      .sabor-text {
+         grid-column: 1 / -1;
+         grid-row: 2;
+      }
+      .sabor-tortas {
+         grid-column: 1 / -1;
+         grid-row: 3;
+         margin: 0px 10% 10px 10%;
+      }
+      .sabor-classicos {
+         grid-column: 1 / -1;
+         grid-row: 4;
+         margin: 0px 10% 30px 10%;
+      }
+      .sabor-img {
+         grid-column: 1 / -1;
+         grid-row: 5;
+         height: 350px;
+         img {
+            object-position: 50% 30%;
+         }
+      }
+   }
+   .gateau {
+      padding: 30px 10px 30px 10px;
+      .gateau-detalhe {
+         grid-column: 1 / span 11;
+         grid-row: 1;
+         height: 80px;
+         margin: 0px 0px 10px -10px;
+      }
+      .gateau-img {
+         grid-column: 1 / -1;
+         grid-row: 5;
+         height: 350px;
+         top: 0px;
+         img {
+            object-position: 50% 80%;
+         }
+      }
+      .gateau-title {
+         grid-column: 1 / -1;
+         grid-row: 2;
+         margin-bottom: 30px;
+      }
+      .gateau-text {
+         grid-column: 1 / -1;
+         grid-row: 3;
+         p {
+            margin-bottom: 20px;
+         }
+         p:not(:last-of-type) {
+            margin-bottom: none;
+         }
+      }
+      .gateau-price {
+         grid-column: 7 / -1;
+         grid-row: 4;
+         margin-bottom: 30px;
+      }
+   }
+}
+
+@media only screen and (max-width: 600px) {
+   .sobremesa {
+      .sobremesa-img {
+         grid-column: 1 / -1;
+         grid-row: 2;
+         height: 350px;
+         margin-bottom: 30px;
+      }
+      .sobremesa-title {
+         grid-column: 1 / -1;
+         grid-row: 1;
+         margin-bottom: 10px;
+      }
+      .sobremesa-text {
+         grid-column: 1 / -1;
+         grid-row: 3;
+      }
+      .sobremesa-btn {
+         grid-column: 1 / -1;
+         grid-row: 4;
+      }
+   }
+   .brownie {
+      .brownie-img {
+         grid-column: 1 / -1;
+         grid-row: 3;
+         margin-bottom: 30px;
+      }
+      .brownie-title {
+         grid-column: 1 / -1;
+         grid-row: 1;
+         margin-bottom: 30px;
+         font-size: 6.6rem !important;
+      }
+      .brownie-text {
+         grid-column: 1 / -1;
+         grid-row: 2;
+         padding-bottom: 0px;
+         border-bottom: none;
+      }
+      .brownie-info {
+         grid-column: 1 / span 6;
+         grid-row: 4;
+      }
+      .brownie-price {
+         grid-column: 7 / -1;
+         grid-row: 4;
+         .brownie-price-single {
+            padding-right: 10px;
+            margin-right: 10px;
+         }
+      }
+   }
+   .muffin {
+      .muffin-img {
+         grid-column: 1 / -1;
+         grid-row: 3;
+         margin-bottom: 30px;
+      }
+      .muffin-title {
+         grid-column: 1 / -1;
+         grid-row: 1;
+         margin-bottom: 30px;
+         font-size: 6.6rem !important;
+      }
+      .muffin-text {
+         grid-column: 1 / -1;
+         grid-row: 2;
+         padding-bottom: 0px;
+         border-bottom: none;
+      }
+      .muffin-info {
+         grid-column: 7 / -1;
+         grid-row: 4;
+      }
+      .muffin-price {
+         grid-column: 1 / span 6;
+         grid-row: 4;
+         place-self: end start;
+         .muffin-price-single {
+            padding-right: 10px;
+            margin-right: 10px;
+         }
+      }
+   }
+   .pancake {
+      .pancake-img {
+         grid-column: 1 / -1;
+         grid-row: 3;
+         margin-bottom: 30px;
+      }
+      .pancake-title {
+         grid-column: 1 / -1;
+         grid-row: 1;
+         margin-bottom: 30px;
+         font-size: 6.6rem !important;
+      }
+      .pancake-text {
+         grid-column: 1 / -1;
+         grid-row: 2;
+         padding-bottom: 0px;
+         border-bottom: none;
+      }
+      .pancake-info {
+         grid-column: 1 / span 6;
+         grid-row: 4;
+      }
+      .pancake-price {
+         grid-column: 7 / -1;
+         grid-row: 4;
+         .pancake-price-single {
+            padding-right: 10px;
+            margin-right: 10px;
+         }
+      }
+   }
+   .sabor {
+      .sabor-title {
+         grid-column: 1 / -1;
+         grid-row: 1;
+         font-size: 6.6rem !important;
+      }
+      .sabor-text {
+         grid-column: 1 / -1;
+         grid-row: 2;
+      }
+      .sabor-tortas {
+         grid-column: 1 / -1;
+         grid-row: 3;
+         margin: 0px 0px 10px 0px;
+      }
+      .sabor-classicos {
+         grid-column: 1 / -1;
+         grid-row: 4;
+         margin: 0px 0px 10px 0px;
+      }
+      .sabor-img {
+         grid-column: 1 / -1;
+         grid-row: 5;
+      }
+   }
+   .gateau {
+      .gateau-detalhe {
+         grid-column: 1 / span 11;
+         grid-row: 1;
+         height: 60px;
+      }
+      .gateau-img {
+         grid-column: 1 / -1;
+         grid-row: 5;
+      }
+      .gateau-title {
+         grid-column: 1 / -1;
+         grid-row: 2;
+      }
+      .gateau-text {
+         grid-column: 1 / -1;
+         grid-row: 3;
+      }
+      .gateau-price {
+         grid-column: 7 / -1;
+         grid-row: 4;
+      }
+   }
+}
